@@ -1,0 +1,18 @@
+services:
+  guardian:
+    build: .
+    container_name: minecraft-server-guardian
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      SERVER_DIR: /server
+      START_COMMAND: "java -Xms1G -Xmx2G -jar server.jar nogui"
+      BACKUP_DIR: /server/backups
+      BACKUP_INTERVAL_MINUTES: "30"
+      RESTART_DELAY_SECONDS: "10"
+      MAX_RESTART_ATTEMPTS: "5"
+      HEALTH_PORT: "8080"
+      DISCORD_WEBHOOK_URL: ""
+    volumes:
+      - ./server:/server

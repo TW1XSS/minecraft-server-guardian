@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "minecraft-server-guardian"
+version = "0.1.0"
+description = "Self-hosted monitoring and crash recovery for Minecraft servers"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {file = "LICENSE"}
+authors = [{name = "Wizard"}]
+
+[project.scripts]
+server-guardian = "guardian.app:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
